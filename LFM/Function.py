@@ -3,7 +3,7 @@ import pandas as pd
 
 def calculate_spring_matrix(params, coordinates):
     """
-    params: dict，包含 d, t, d_b, f_u, t_s, f_y, E, L
+    params: dict，include d, t, d_b, f_u, t_s, f_y, E, L
     coordinates: np.array, shape=(n,2)
     """
     d = params['d']
@@ -127,13 +127,13 @@ def calculate_spring_matrix(params, coordinates):
 
 def save_spring_matrix_as_formatted_csv(Spring_Matrix_swapped, filename='Spring_Matrix.csv'):
     """
-    将Spring_Matrix_swapped 按特定格式（9行4列的小表，Timber/Steel温度）保存成csv
+    Spring_Matrix_swapped to csv
     """
     timber_temp_pattern = [20, 100, 20, 100, 20, 100, 20, 100]
     steel_temp_pattern = [20, 20, 400, 400, 600, 600, 800, 800]
 
     def create_table(label1, label2, spring_values):
-        df = pd.DataFrame('', index=range(9), columns=[0, 1, 2, 3])  # 4列
+        df = pd.DataFrame('', index=range(9), columns=[0, 1, 2, 3])  
         df.iloc[0, 0] = label1
         df.iloc[0, 1] = label2
         df.iloc[0, 2] = 'Timber temperature'
