@@ -3,7 +3,7 @@ from tkinter import messagebox
 from PIL import Image, ImageTk
 import numpy as np
 import pandas as pd
-from Function import calculate_spring_matrix,save_spring_matrix_as_formatted_csv  # 导入你上面的函数（存在同一个目录里）
+from Function import calculate_spring_matrix,save_spring_matrix_as_formatted_csv 
 
 class SpringCalculatorGUI:
     def __init__(self, root):
@@ -15,16 +15,14 @@ class SpringCalculatorGUI:
         self.top_frame = tk.Frame(root, bg="#f0f0f0")
         self.top_frame.pack(fill='x', pady=10, anchor='w')
         self.top_frame.pack(pady=10)
-        # 上半部分 输入区
         self.inputs_frame = tk.LabelFrame(self.top_frame, text="Input Designed Parameter", font=self.font_style, bg="#f0f0f0", padx=10,
                                           pady=10)
         self.inputs_frame.pack(side='left', anchor='n', padx=20)
 
-        # 创建输入框
         self.labels = ['Timber density', 'Timber thickness', 'Bolt diameter', 'Bolt strength', 'Steel plate thickness',
                        'Steel plate strength', 'Steel modulus', 'Beam Width', 'Bolt number']
 
-        self.units = ['kg/m³', 'mm', 'mm', 'MPa', 'mm', 'MPa', 'MPa', 'mm', '']  # 注意最后 Bolt number 是无单位
+        self.units = ['kg/m³', 'mm', 'mm', 'MPa', 'mm', 'MPa', 'MPa', 'mm', '']  
         self.entries = {}
         for idx, label in enumerate(self.labels):
             tk.Label(self.inputs_frame, text=label, font=self.font_style, bg="#f0f0f0").grid(row=idx, column=0,
@@ -36,16 +34,13 @@ class SpringCalculatorGUI:
                                                                                                        column=2,
                                                                                                        sticky='w')
 
-        # 按钮 - 确认n并生成坐标输入框
         self.coord_button = tk.Button(self.inputs_frame, text="Input coordinates of bolt (X, Y)", command=self.generate_coordinate_inputs)
         self.coord_button.grid(row=len(self.labels), column=0, columnspan=2, pady=5)
 
-        # 坐标输入框放这里
         self.coord_frame = tk.LabelFrame(self.top_frame, text="Input coordinates of bolt (X, Y)", font=self.font_style, bg="#f0f0f0",
                                          padx=10, pady=10)
         self.coord_frame.pack(side='left', padx=20)
 
-        # 运算按钮
         self.coord_button = tk.Button(self.inputs_frame, text="Input coordinates of bolt (X, Y)", font=self.font_style, bg="#4ea1f3",
                                       fg="white", relief="raised", bd=2, command=self.generate_coordinate_inputs)
         self.coord_button.grid(row=len(self.labels), column=0, columnspan=2, pady=10)
@@ -54,7 +49,6 @@ class SpringCalculatorGUI:
                                      relief="raised", bd=3, command=self.run_calculation)
         self.calc_button.pack(pady=10)
 
-        # 下半部分 图像展示
         self.image_frame = tk.Frame(root, bg="#f0f0f0")
         self.image_frame.pack(pady=10)
 
@@ -112,10 +106,8 @@ class SpringCalculatorGUI:
                 coordinates.append([x, y])
             coordinates = np.array(coordinates)
 
-            # 🔥调用你的运算函数
             Spring_Matrix_swapped = calculate_spring_matrix(params, coordinates)
 
-            # 🔥用你的排版格式保存
             save_spring_matrix_as_formatted_csv(Spring_Matrix_swapped)
 
             messagebox.showinfo("Complete", "Generate Spring_Matrix.csv successfully")
@@ -140,7 +132,6 @@ class SpringCalculatorGUI:
         except:
             messagebox.showerror("Error", "Can not load image1.png and image2.png")
 
-# 启动
 root = tk.Tk()
 app = SpringCalculatorGUI(root)
 root.mainloop()
