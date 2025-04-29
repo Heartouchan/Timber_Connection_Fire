@@ -148,7 +148,7 @@ def save_spring_matrix_as_formatted_csv(Spring_Matrix_swapped, filename='Spring_
     final_rows = []
 
     for i in range(Spring_Matrix_swapped.shape[0]):
-        data = Spring_Matrix_swapped[i, :]  # 48列
+        data = Spring_Matrix_swapped[i, :]
 
         spring1_1 = data[0:16]
         spring1_2 = data[16:32]
