@@ -20,11 +20,10 @@ To run this code package, please install the following dependencies:
 
 ```bash
 Python 3.9 or higher
-PySimpleGUI
+Pytorch 2.6.0 or higher
+tkinter
 NumPy
 Pandas
-Pillow
-pickle
+matplotlib
 scikit-learn
-shap
-deap
+
