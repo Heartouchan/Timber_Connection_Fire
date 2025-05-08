@@ -1,5 +1,7 @@
 # Timber_Connection_Fire
-This project aims to evaluate the fire performance of the timber connection with multi-fidelity neural network.
+This project aims to evaluate the fire performance of the timber connection with multi-fidelity neural network (MFNN).
+
+The code programs for MFNN and low-fidelity model (LFM) are provided. 
 
 Once the timber connection configuration is determined, the evaluation procedure can be conducted as below:
 
