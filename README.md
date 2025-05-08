@@ -1,8 +1,5 @@
 # Timber_Connection_Fire
-This 
-
-
-
+This project aims to evaluate the fire performance of the timber connection with multi-fidelity neural network.
 
 Once the timber connection configuration is determined, the evaluation procedure can be conducted as below:
 
