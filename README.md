@@ -1,6 +1,20 @@
 # Timber_Connection_Fire
 
 
+## Requirements
+
+To run this code package, please install the following dependencies:
+
+```bash
+Python 3.9 or higher
+PySimpleGUI
+NumPy
+Pandas
+Pillow
+pickle
+scikit-learn
+shap
+deap
 
 
 
