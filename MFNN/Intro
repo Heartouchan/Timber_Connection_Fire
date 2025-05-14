@@ -1,0 +1,3 @@
+High-fidelity data and low-fidelity data are from finite element software ABAQUS.
+
+Please remove the feature name in csv file (the first row) before run the MFNN.
