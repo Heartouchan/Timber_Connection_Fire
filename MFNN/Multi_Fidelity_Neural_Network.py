@@ -76,8 +76,8 @@ def evaluate_model(model, x, y, label="Model"):
     return outputs
 
 # Load and preprocess data
-LF_data = pd.read_csv('LF_data_load_ratio_10.csv', encoding='gbk', header=None)
-HF_data = pd.read_csv('HF_data_load_ratio_10.csv', encoding='gbk', header=None)
+LF_data = pd.read_csv('LF_data.csv', encoding='gbk', header=None)
+HF_data = pd.read_csv('HF_data.csv', encoding='gbk', header=None)
 x_lo, y_lo = LF_data.iloc[:, :-1].values, LF_data.iloc[:, -1].values
 x_hi, y_hi = HF_data.iloc[:, :-1].values, HF_data.iloc[:, -1].values
 
@@ -167,7 +167,7 @@ with torch.no_grad():
     plt.show()
 
 # Exclusive Validation
-HF_data_val = pd.read_csv('HF_data_validation_load_ratio_10.csv', encoding='gbk', header=None)
+HF_data_val = pd.read_csv('HF_data_validation.csv', encoding='gbk', header=None)
 x_hi_val, y_hi_val = HF_data_val.iloc[:, :-1].values, HF_data_val.iloc[:, -1].values
 x_scaled_hi_val = scaler.transform(x_hi_val)
 pred_val = alpha * model_lhn(torch.tensor(x_scaled_hi_val, dtype=torch.float32)) + (1 - alpha) * model_lhl(torch.tensor(x_scaled_hi_val, dtype=torch.float32))
